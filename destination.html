@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Destinations - VacaNation</title>
+    <link rel="stylesheet" href="styles1.css">
+    <style>
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        /* Header */
+        header {
+            background-color: #222;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: inline-block;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 17px;
+        }
+
+        /* Destination Section */
+        .destination-section {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .destination-section h2 {
+            font-size: 32px;
+            color: #333;
+        }
+
+        .destination-section p {
+            font-size: 18px;
+            color: #777;
+            margin-bottom: 30px;
+        }
+
+        /* Filters */
+        .filters {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .filters select {
+            padding: 10px;
+            margin: 0 10px;
+            font-size: 16px;
+            border: 2px solid #54c571;
+            border-radius: 5px;
+        }
+
+        .filters button {
+            background-color: #54c571;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .filters button:hover {
+            background-color: #222;
+        }
+
+        /* Travel Destinations */
+        .destinations {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .destination-card {
+            width: 300px;
+            margin: 15px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .destination-card:hover {
+            transform: scale(1.05);
+        }
+
+        .destination-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .destination-card h3 {
+            padding: 15px;
+            background-color: #54c571;
+            color: white;
+            margin: 0;
+        }
+
+        .destination-card p {
+            padding: 10px;
+            color: #333;
+        }
+
+        /* Solo Travelers */
+        .solo-travel {
+            text-align: center;
+            padding: 40px;
+            background-color: rgb(233, 230, 230);
+            
+        }
+
+        .solo-travel h2 {
+            color: #333;
+        }
+
+        .solo-travel button {
+            background-color: #54c571;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        .solo-travel button:hover {
+            background-color: #222;
+        }
+
+        footer {
+            background-color: #222;
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <h1>VacaNation</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="destinations.html" class="active">Destinations</a></li>
+                <li><a href="tours.html">Tours</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="solo.html">Solo Traveler?</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Destination Section -->
+    <section class="destination-section">
+        <h2>Explore Your Next Destination</h2>
+        <p>Select your preferred state and season to discover top destinations and adventures in India.</p>
+
+        <!-- Filters Section -->
+        <div class="filters">
+            <select id="state">
+                <option value="">Select State</option>
+                <option value="Rajasthan">Rajasthan</option>
+                <option value="Goa">Goa</option>
+                <option value="Kerala">Kerala</option>
+                <option value="Himachal Pradesh">Himachal Pradesh</option>
+                <option value="Andhra Pradesh">Andhra Pradesh</option>
+                <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                <option value="Assam">Assam</option>
+                <option value="Bihar">Bihar</option>
+                <option value="Chattisgarh">Chattisgarh</option>
+                <option value="Gujarat">Gujarat</option>
+                <option value="Haryana">Haryana</option>
+                <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+                <option value="Jharkhand">Jharkhand</option>
+                <option value="Karnataka">Karnataka</option>
+                <option value="Madhya Pradesh">Madhya Pradesh</option>
+                <option value="Maharashtra">Maharashtra</option>
+                <option value="Manipur">Manipur</option>
+                <option value="Meghalaya">Meghalaya</option>
+                <option value="Mizoram">Mizoram</option>
+                <option value="Nagaland">Nagaland</option>
+                <option value="Odisha">Odisha</option>
+                
+            </select>
+
+            <select id="season">
+                <option value="">Select Season</option>
+                <option value="Winter">Winter</option>
+                <option value="Summer">Summer</option>
+                <option value="Monsoon">Monsoon</option>
+                
+            </select>
+
+            <button onclick="filterDestinations()">Explore</button>
+        </div>
+
+        <!-- Destinations -->
+        <div class="destinations">
+            <div class="destination-card">
+                <img src="rajasthan.png" alt="Rajasthan">
+                <h3>Rajasthan</h3>
+                <p>Discover the rich cultural heritage and majestic palaces of Rajasthan. Perfect for a winter escape.</p>
+            </div>
+
+            <div class="destination-card">
+                <img src="goa.png" alt="Goa">
+                <h3>Goa</h3>
+                <p>Relax on the sandy beaches or enjoy adventure activities in the vibrant state of Goa during summer.</p>
+            </div>
+
+            <div class="destination-card">
+                <img src="kerala.png" alt="Kerala">
+                <h3>Kerala</h3>
+                <p>Immerse yourself in the serene backwaters and lush greenery of Kerala during monsoon.</p>
+            </div>
+
+            <div class="destination-card">
+                <img src="andhra.png" alt="Andhra Pradesh">
+                <h3>Andhra Pradesh</h3>
+                <p>Immerse yourself in the serene backwaters and lush greenery of Kerala during monsoon.</p>
+            </div>
+
+            <div class="destination-card">
+                <img src="odisha.png" alt="Odisha">
+                <h3>Odisha</h3>
+                <p>Immerse yourself in the serene backwaters and lush greenery of Kerala during monsoon.</p>
+            </div>
+
+            <div class="destination-card">
+                <img src="maharashtra.png" alt="Maharashtra">
+                <h3>Maharashtra</h3>
+                <p>Immerse yourself in the serene backwaters and lush greenery of Kerala during monsoon.</p>
+            </div>
+
+            
+
+            <!-- Add more destination cards -->
+        </div>
+    </section>
+
+    <!-- Solo Travelers Section -->
+    <section class="solo-travel">
+        <h2>Are You a Solo Traveler?</h2><br>
+        <p>Connect with other solo travelers for a unique travel experience.</p><br>
+        <button onclick="connectSoloTravelers()">Find Travel Buddies</button>
+    </section>
+
+    
+    <footer>
+        <p>&copy; 2024 VacaNation | All Rights Reserved | NishikaShah , MridulikaMukerji , AtharvaNaik</p>
+    </footer>
+
+    <script>
+        function filterDestinations() {
+            var state = document.getElementById('state').value;
+            var season = document.getElementById('season').value;
+
+            if (state && season) {
+                alert('Showing destinations in ' + state + ' for the ' + season + ' season.');
+                
+            } else {
+                alert('Please select both state and season.');
+            }
+        }
+
+        function connectSoloTravelers() {
+    window.location.href = 'solo.html'; // Redirect to solo.html
+}
+
+    </script>
+</body>
+</html>
